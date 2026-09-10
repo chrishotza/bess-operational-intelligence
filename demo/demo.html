@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conscious Pulse BESS — Public Demo</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <header class="hero">
+        <div>
+            <div class="eyebrow">CONSCIOUS PULSE</div>
+            <h1>BESS Supervisory Decision Intelligence</h1>
+            <p>
+                Interactive public demonstration of regime-aware
+                supervisory battery operation.
+            </p>
+        </div>
+
+        <div class="status-badge">
+            PUBLIC DEMO V1
+        </div>
+    </header>
+
+
+    <section class="scenario-panel">
+
+        <div class="section-title">
+            <span>OPERATING SCENARIO</span>
+            <small>Select a changing operating condition</small>
+        </div>
+
+        <div class="scenario-buttons">
+
+            <button class="scenario-btn active" data-scenario="normal">
+                NORMAL
+            </button>
+
+            <button class="scenario-btn" data-scenario="peak">
+                PEAK
+            </button>
+
+            <button class="scenario-btn" data-scenario="low_soc">
+                LOW SOC
+            </button>
+
+            <button class="scenario-btn" data-scenario="outage">
+                OUTAGE
+            </button>
+
+            <button class="scenario-btn" data-scenario="recovery">
+                RECOVERY
+            </button>
+
+            <button class="scenario-btn" data-scenario="generation_loss">
+                GENERATION LOSS
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="dashboard">
+
+        <div class="card">
+            <div class="card-label">SITE LOAD</div>
+            <div class="metric" id="loadValue">Stable</div>
+            <div class="metric-sub" id="loadSub">
+                Normal site demand
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">GRID STATE</div>
+            <div class="metric" id="gridValue">AVAILABLE</div>
+            <div class="metric-sub" id="gridSub">
+                Grid-connected operation
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">BATTERY SOC</div>
+            <div class="metric" id="socValue">Within range</div>
+            <div class="metric-sub" id="socSub">
+                Operating reserve available
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">GENERATION</div>
+            <div class="metric" id="generationValue">AVAILABLE</div>
+            <div class="metric-sub" id="generationSub">
+                Expected generation condition
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="decision-layout">
+
+        <div class="decision-card regime-card">
+
+            <div class="card-label">
+                CURRENT OPERATING REGIME
+            </div>
+
+            <div class="big-value" id="regimeValue">
+                NORMAL / GRID-CONNECTED
+            </div>
+
+            <div class="regime-line">
+                Context changes -> supervisory behavior adapts
+            </div>
+
+        </div>
+
+
+        <div class="decision-card action-card">
+
+            <div class="card-label">
+                SUPERVISORY DECISION
+            </div>
+
+            <div class="big-value" id="decisionValue">
+                HOLD
+            </div>
+
+            <div class="action-description" id="decisionDescription">
+                Maintain the current operating state while preserving
+                reserve and service conditions.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="constraint-grid">
+
+        <div class="constraint-card">
+
+            <div class="card-label">RESERVE</div>
+
+            <div class="constraint-value"
+                 id="reserveValue">
+                MAINTAINED
+            </div>
+
+            <div class="constraint-sub"
+                 id="reserveSub">
+                Reserve discipline active
+            </div>
+
+        </div>
+
+
+        <div class="constraint-card">
+
+            <div class="card-label">SERVICE</div>
+
+            <div class="constraint-value"
+                 id="serviceValue">
+                PRESERVED
+            </div>
+
+            <div class="constraint-sub"
+                 id="serviceSub">
+                Service continuity considered
+            </div>
+
+        </div>
+
+
+        <div class="constraint-card">
+
+            <div class="card-label">SAFETY GATES</div>
+
+            <div class="constraint-value"
+                 id="safetyValue">
+                ACTIVE
+            </div>
+
+            <div class="constraint-sub"
+                 id="safetySub">
+                Supervisory constraints remain active
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="reason-card">
+
+        <div class="card-label">
+            DECISION REASON
+        </div>
+
+        <div class="reason-text" id="reasonText">
+            The current operating conditions support a normal
+            grid-connected supervisory state.
+        </div>
+
+    </section>
+
+
+    <section class="comparison">
+
+        <div class="section-title">
+            <span>WHY THIS IS DIFFERENT</span>
+            <small>Conceptual comparison</small>
+        </div>
+
+        <div class="comparison-grid">
+
+            <div class="comparison-column">
+
+                <div class="comparison-title">
+                    SIMPLE OBJECTIVE-DRIVEN BEHAVIOR
+                </div>
+
+                <div class="comparison-item">
+                    Optimize one dominant objective
+                </div>
+
+                <div class="comparison-item">
+                    Limited operating-regime awareness
+                </div>
+
+                <div class="comparison-item">
+                    Reserve treated primarily as a constraint
+                </div>
+
+                <div class="comparison-item">
+                    Limited explanation layer
+                </div>
+
+            </div>
+
+
+            <div class="comparison-column highlighted">
+
+                <div class="comparison-title">
+                    CONSCIOUS PULSE
+                </div>
+
+                <div class="comparison-item">
+                    Regime-aware supervisory decisions
+                </div>
+
+                <div class="comparison-item">
+                    Reserve-aware operation
+                </div>
+
+                <div class="comparison-item">
+                    Peak / outage / recovery behavior
+                </div>
+
+                <div class="comparison-item">
+                    Service and safety-gate visibility
+                </div>
+
+                <div class="comparison-item">
+                    High-level decision reasoning
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="evidence">
+
+        <div class="section-title">
+            <span>SIMULATION EVIDENCE</span>
+            <small>Final locked replay benchmark</small>
+        </div>
+
+        <div class="evidence-grid">
+
+            <div>
+                <strong>26</strong>
+                <span>scenarios</span>
+            </div>
+
+            <div>
+                <strong>260</strong>
+                <span>runs</span>
+            </div>
+
+            <div>
+                <strong>260 / 260</strong>
+                <span>successful</span>
+            </div>
+
+            <div>
+                <strong>0</strong>
+                <span>SOC violations</span>
+            </div>
+
+            <div>
+                <strong>0</strong>
+                <span>thermal warnings</span>
+            </div>
+
+            <div>
+                <strong>0</strong>
+                <span>policy violations</span>
+            </div>
+
+        </div>
+
+        <div class="evidence-note">Final locked replay benchmark. Simulation-grade evidence.</div>
+
+    </section>
+
+
+    <footer>
+
+        <div>
+            <strong>Conscious Pulse BESS</strong>
+            <span>
+                Supervisory decision intelligence for constrained
+                battery operation.
+            </span>
+        </div>
+
+        <div class="footer-note">
+            PUBLIC DEMONSTRATION
+        </div>
+
+    </footer>
+
+</div>
+
+<script src="demo.js"></script>
+
+</body>
+</html>
+
+
