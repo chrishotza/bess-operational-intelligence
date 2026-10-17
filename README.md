@@ -1,4 +1,12 @@
-﻿# BESS Operational Intelligence
+# BESS Operational Intelligence
+
+**ConsciousPulse · supervisory energy intelligence**  
+**ConsciousPulse · inteligencia supervisora para energía**
+
+This repository is a **public, simulation-backed research demonstration** of supervisory decisions for battery energy storage systems. It is not a deployed controller, a certified protection system, or evidence of completed field/HIL validation.
+
+**ES:** Demostración pública de investigación de ConsciousPulse sobre decisiones supervisoras para baterías, respaldada por simulaciones. No representa un controlador desplegado ni una validación de campo/HIL completada.
+
 
 Public technical demonstration of supervisory decision intelligence for constrained Battery Energy Storage System (BESS) operation.
 
