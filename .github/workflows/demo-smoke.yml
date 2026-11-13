@@ -1,0 +1,31 @@
+name: Static demo smoke tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "demo/**"
+      - "tests/**"
+      - ".github/workflows/demo-smoke.yml"
+  pull_request:
+    paths:
+      - "demo/**"
+      - "tests/**"
+      - ".github/workflows/demo-smoke.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check JavaScript syntax
+        run: node --check demo/demo.js
+      - name: Verify scenario interaction and accessibility contract
+        run: node --test tests/demo.test.cjs
