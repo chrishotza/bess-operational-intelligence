@@ -19,6 +19,7 @@
                 Interactive public demonstration of regime-aware
                 supervisory battery operation.
             </p>
+            <p class="simulation-warning">Static simulated scenarios only. No live battery data, control commands, or certified safety decisions. Physical protection remains authoritative.</p>
         </div>
 
         <div class="status-badge">
@@ -34,33 +35,35 @@
             <small>Select a changing operating condition</small>
         </div>
 
-        <div class="scenario-buttons">
+        <div class="scenario-buttons" role="group" aria-label="Operating scenario">
 
-            <button class="scenario-btn active" data-scenario="normal">
+            <button type="button" class="scenario-btn active" data-scenario="normal" aria-pressed="true">
                 NORMAL
             </button>
 
-            <button class="scenario-btn" data-scenario="peak">
+            <button type="button" class="scenario-btn" data-scenario="peak" aria-pressed="false">
                 PEAK
             </button>
 
-            <button class="scenario-btn" data-scenario="low_soc">
+            <button type="button" class="scenario-btn" data-scenario="low_soc" aria-pressed="false">
                 LOW SOC
             </button>
 
-            <button class="scenario-btn" data-scenario="outage">
+            <button type="button" class="scenario-btn" data-scenario="outage" aria-pressed="false">
                 OUTAGE
             </button>
 
-            <button class="scenario-btn" data-scenario="recovery">
+            <button type="button" class="scenario-btn" data-scenario="recovery" aria-pressed="false">
                 RECOVERY
             </button>
 
-            <button class="scenario-btn" data-scenario="generation_loss">
+            <button type="button" class="scenario-btn" data-scenario="generation_loss" aria-pressed="false">
                 GENERATION LOSS
             </button>
 
         </div>
+
+        <p class="sr-only" id="scenarioAnnouncement" role="status" aria-live="polite" aria-atomic="true"></p>
 
     </section>
 
