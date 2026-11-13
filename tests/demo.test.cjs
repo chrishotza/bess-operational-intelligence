@@ -46,7 +46,8 @@ test('scenario switching updates text and ARIA status without external dependenc
       return buttons;
     },
   };
-  vm.runInNewContext(script, {document}, {timeout: 1000});
+  const context = {document};
+  vm.runInNewContext(script, context, {timeout: 1000});
   assert.equal(elements.get('decisionValue').textContent, 'HOLD');
   assert.equal(buttons[0].attrs['aria-pressed'], 'true');
   buttons[3].listeners.click();
@@ -78,7 +79,7 @@ test('scenario switching updates text and ARIA status without external dependenc
   buttons[5].listeners.keydown(keyEvent('Tab'));
   assert.equal(prevented, 4, 'Tab must retain native browser behavior');
 
-  vm.runInNewContext('renderScenario("constructor")', {document}, {timeout: 1000});
+  vm.runInNewContext('renderScenario("constructor")', context, {timeout: 1000});
   assert.equal(elements.get('decisionValue').textContent, 'ADAPTIVE SUPPORT');
 
 });
