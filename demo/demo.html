@@ -35,7 +35,7 @@
             <small>Select a changing operating condition</small>
         </div>
 
-        <div class="scenario-buttons" role="group" aria-label="Operating scenario">
+        <div class="scenario-buttons" role="group" aria-label="Operating scenario" aria-describedby="scenarioHelp">
 
             <button type="button" class="scenario-btn active" data-scenario="normal" aria-pressed="true">
                 NORMAL
@@ -62,6 +62,8 @@
             </button>
 
         </div>
+
+        <p class="sr-only" id="scenarioHelp">Use left and right arrow keys to switch scenarios; Home and End jump to first and last. The scenarios are static simulations.</p>
 
         <p class="sr-only" id="scenarioAnnouncement" role="status" aria-live="polite" aria-atomic="true"></p>
 
