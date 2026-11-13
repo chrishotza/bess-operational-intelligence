@@ -213,7 +213,7 @@ function setText(id, value) {
 
 function renderScenario(name) {
 
-    const s = scenarios[name];
+    const s = Object.hasOwn(scenarios, name) ? scenarios[name] : null;
 
     if (!s) return;
 
@@ -258,16 +258,31 @@ function renderScenario(name) {
 }
 
 
-document.querySelectorAll(".scenario-btn")
-    .forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            renderScenario(button.dataset.scenario);
-
-        });
-
+const scenarioButtons = Array.from(document.querySelectorAll(".scenario-btn"));
+scenarioButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+        renderScenario(button.dataset.scenario);
     });
 
+    // Group buttons remain normal Tab targets; arrows offer an optional shortcut.
+    button.addEventListener("keydown", event => {
+        const key = event.key;
+        let nextIndex;
+        if (key === "ArrowRight") {
+            nextIndex = (index + 1) % scenarioButtons.length;
+        } else if (key === "ArrowLeft") {
+            nextIndex = (index - 1 + scenarioButtons.length) % scenarioButtons.length;
+        } else if (key === "Home") {
+            nextIndex = 0;
+        } else if (key === "End") {
+            nextIndex = scenarioButtons.length - 1;
+        } else {
+            return;
+        }
+        event.preventDefault();
+        scenarioButtons[nextIndex].focus();
+        renderScenario(scenarioButtons[nextIndex].dataset.scenario);
+    });
+});
 
 renderScenario("normal");
