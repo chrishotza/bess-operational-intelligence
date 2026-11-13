@@ -248,13 +248,13 @@ function renderScenario(name) {
     document.querySelectorAll(".scenario-btn")
         .forEach(button => {
 
-            button.classList.remove("active");
-
-            if (button.dataset.scenario === name) {
-                button.classList.add("active");
-            }
+            const selected = button.dataset.scenario === name;
+            button.classList.toggle("active", selected);
+            button.setAttribute("aria-pressed", String(selected));
 
         });
+
+    setText("scenarioAnnouncement", `Operating scenario: ${name.replaceAll("_", " ")}. Supervisory decision: ${s.decision}. Static simulation only.`);
 }
 
 
